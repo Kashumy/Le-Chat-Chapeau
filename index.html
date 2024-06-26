@@ -5300,6 +5300,7 @@ var updatevpifblockspassed=25
 let by4=0
 var pausemove=0
 function movePlayer(dx, dy) {
+  collision();
   if(pausemove==0){
   const maxHistoryLength = 50;
 
@@ -5334,7 +5335,7 @@ if(by4<3){
 
   player.style.left = playerX * tileSize2 + 'px';
   player.style.top = playerY * tileSize2 + 'px';
-  }collision();
+  }
 }
 function setPlayer(dx, dy) {
   playerX = dx;
@@ -10520,7 +10521,7 @@ document.querySelector('html').style.filter="brightness(100%)"
 } else {
 
 }
-
+setTimeout(function(){
 if (config.stickybg1 == 0) {
   let content = document.getElementById('content');
   let content2 = document.getElementById('content2');
@@ -10537,6 +10538,8 @@ if (config.stickybg1 == 0) {
   content.style.backgroundImage = '';
 }
 gravity=config.gravity
+},1200)
+
 //alert(config.gravity)
 setTimeout(function (){
 playerY = config.px;
@@ -10555,5 +10558,9 @@ config.spawnY=config.spawnY+0.9
 <style>
   #Start{
     border-radius: 0%;
+  }
+  *{
+    
+    user-select: none
   }
 </style>
